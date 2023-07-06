@@ -10,26 +10,28 @@ const LoginForm = () => {
 
 
     const handleLogin = () => {
-        if (!email || !password) {
-          alert('Неверный логин или пароль');
-          
-        }
-        
-        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
-          email,
-          password 
-        })
-        .then(response => {
-          navigate('/stock');
-          console.log(response.data.success);
-          
-        })
-        .catch(error => {
-         alert('Произошла ошибка авторизации: пользователь не авторизован', error.message);
-          console.log(error.message);
-        });
-      
-    } 
+      const token = localStorage.getItem('token');
+      if (!email || !password) {
+        alert('Неверный логин или пароль');
+      }
+            
+      axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
+        email,
+        password,
+        headers: {
+          Authorization: `Bearer ${token}`
+        } 
+      })
+      .then(response => {
+        const username = response.data.username;
+          navigate('/stock', { username: username });
+        console.log(response.data.username);
+      })
+      .catch(error => {
+        alert('Произошла ошибка авторизации: пользователь не авторизован', error.message);
+        console.log(error.message);
+      });
+    }
  
     return(
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
