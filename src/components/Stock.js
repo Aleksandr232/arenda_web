@@ -11,7 +11,13 @@ const Stock = (props) => {
     const [gazelnew, setGazelnew] = useState('');
     const [gazelold, setGazelold] = useState('');
     const [username, setUsername] = useState('');
-    
+    const [rama, setRama] = useState('');
+    const [ramadioganal, setRamadioganal] = useState('');
+    const [conect, setConect] = useState('');
+    const [nastil, setNastil] = useState('');
+    const [rigel, setRigel] = useState('');
+    const [bash, setBash] = useState('');
+    const [jack, setJack] = useState('');
     
 
     const handleSubmit = (e) => {
@@ -24,7 +30,14 @@ const Stock = (props) => {
         lesa,
         gazelnew,
         gazelold,
-        username
+        username,
+        rama,
+        rigel,
+        ramadioganal,
+        bash,
+        jack,
+        nastil,
+        conect
            
     })
     .then((response) => {
@@ -92,8 +105,50 @@ const Stock = (props) => {
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="барсик"
+                  placeholder="состояния  барсика"
                   onChange={(e)=>setTractor(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол башмаков"
+                  onChange={(e)=>setBash(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол связей"
+                  onChange={(e)=>setConect(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол настилов"
+                  onChange={(e)=>setNastil(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол проходных рам"
+                  onChange={(e)=>setRama(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол диагональ 2я"
+                  onChange={(e)=>setRamadioganal(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол ригелей"
+                  onChange={(e)=>setRigel(e.target.value)}
+                 
+                />
+                <input
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="кол домкрат витовой"
+                  onChange={(e)=>setJack(e.target.value)}
                  
                 />
                 <input
