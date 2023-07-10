@@ -26,6 +26,7 @@ const LoginForm = () => {
         const username = response.data.username;
           navigate('/stock', { username: username });
         console.log(response.data.username);
+        alert('Добро пожаловать, ' +  username )
       })
       .catch(error => {
         alert('Произошла ошибка авторизации: пользователь не авторизован', error.message);
