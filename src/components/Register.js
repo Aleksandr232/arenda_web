@@ -1,31 +1,33 @@
 import { useState } from "react";
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 
-const LoginForm = () => {
+const Register = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const navigate = useNavigate();
 
 
     const handleLogin = () => {
       const token = localStorage.getItem('token');
-      if (!email || !password) {
+      /* if (!email || !password) {
         alert('Неверный логин или пароль');
-      }
+      } */
             
-      axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
+      axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/av-register', {
         email,
         password,
-        headers: {
+        name
+       /*  headers: {
           Authorization: `Bearer ${token}`
-        } 
+        }  */
       })
       .then(response => {
-        const username = response.data.username;
-          navigate('/stock', { username: username });
-        console.log(response.data.username);
+        
+          navigate('/stock');
+        console.log(response);
       })
       .catch(error => {
         alert('Произошла ошибка авторизации: пользователь не авторизован', error.message);
@@ -37,11 +39,21 @@ const LoginForm = () => {
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Войти в аккаунт</h2>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Зарегистрироваться</h2>
             <p className="mt-2 text-center text-sm text-gray-600"></p>
           </div>
           <div className="mt-8 space-y-6" >
             <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Имя
+                </label>
+                <input
+                 onChange={(e)=>setName(e.target.value)}
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Имя"
+                />
+              </div>
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -75,9 +87,6 @@ const LoginForm = () => {
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
                   Запомнить меня
                 </label>
-                <label htmlFor="remember-me" className=" ml-2 block text-sm text-gray-900">
-                <Link to={'/register'}>Зарегистрироваться</Link>
-                </label>
               </div>
             </div>
 
@@ -90,7 +99,7 @@ const LoginForm = () => {
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                  {/*  <LockClosedIcon className="h-5 w-5 text-black group-hover:text-indigo-400" aria-hidden="true" /> */}
                 </span>
-               Войти
+                Зарегистрироваться
               </button>
             </div>
           </div>
@@ -99,5 +108,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm;
-    
+export default Register;

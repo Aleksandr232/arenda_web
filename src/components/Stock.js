@@ -18,7 +18,22 @@ const Stock = (props) => {
     const [rigel, setRigel] = useState('');
     const [bash, setBash] = useState('');
     const [jack, setJack] = useState('');
+
+    const [message, setMessage] = useState('');
+    const [logout, setLogout] = useState('');
     
+    const handleLogout = async () => {
+      try {
+        const response = await axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/logout',{
+          logout
+        });
+        setMessage(response.data.success);
+        // Perform any additional actions after logout, such as redirecting to a different page
+      } catch (error) {
+        console.error(error);
+        setMessage('Error occurred during logout');
+      }
+    };
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -70,6 +85,7 @@ const Stock = (props) => {
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Войти в аккаунт</h2>
             <p className="mt-2 text-center text-sm text-gray-600"></p>
           </div> */}
+          <div onClick={handleLogout}>выйти</div>
           <div className="mt-8 space-y-6" >
             <div className="rounded-md shadow-sm -space-y-px">
             <form onSubmit={handleSubmit} action="">
