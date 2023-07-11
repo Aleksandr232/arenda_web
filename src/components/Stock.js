@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Logistica from "./Logistica";
 
 
 const Stock = (props) => { 
@@ -197,6 +198,7 @@ const Stock = (props) => {
         </div>
         
         </div>
+        <Logistica/>
         </div>
       
     )
