@@ -7,8 +7,8 @@ const Menu=()=>{
 
     return(
         <div className="bottom-buttons">
-      <Link to="/register">
-        <button className={`button ${location.pathname === "/register" ? "active" : ""}`}>
+      <Link to="/truck">
+        <button className={`button ${location.pathname === "/truck" ? "active" : ""}`}>
           <FaTruck />
         </button>
       </Link>

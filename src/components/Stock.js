@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import Logistica from "./Logistica";
 import Menu from "./Menu";
 
 const Stock = (props) => { 
@@ -198,7 +197,7 @@ const Stock = (props) => {
         </div>
         
         </div>
-        <Logistica/>
+        
         <Menu/>
         </div>
       
