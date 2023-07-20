@@ -91,87 +91,90 @@ const Stock = (props) => {
             <form onSubmit={handleSubmit} action="">
               <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="количиство лесов"
+                  placeholder="количиство рам с лестницей"
                   onChange={(e)=>setLesa(e.target.value)}
-                  
+                  type='number'
                 />
-                <input
+                {/* <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="количиство вышки-тур"
                   onChange={(e)=>setTours(e.target.value)}
                  
-                />
+                /> */}
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="isuzu"
                   onChange={(e)=>setTexnica(e.target.value)}
+                  type='text'
                   
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="газель 5м"
                   onChange={(e)=>setGazelnew(e.target.value)}
-                 
+                  type='text'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="газель 4,30м"
                   onChange={(e)=>setGazelold(e.target.value)}
-                  
+                  type='text'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="состояния  барсика"
                   onChange={(e)=>setTractor(e.target.value)}
+                  type='text'
                  
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол башмаков"
                   onChange={(e)=>setBash(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол связей"
                   onChange={(e)=>setConect(e.target.value)}
+                  type='number'
                  
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол настилов"
                   onChange={(e)=>setNastil(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол проходных рам"
                   onChange={(e)=>setRama(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол диагональ 2я"
                   onChange={(e)=>setRamadioganal(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол ригелей"
                   onChange={(e)=>setRigel(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="кол домкрат витовой"
                   onChange={(e)=>setJack(e.target.value)}
-                 
+                  type='number'
                 />
                 <input
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Имя зав склада"
                   onChange={(e)=>setUsername(e.target.value)}
-                 
+                 type='text'
                 />
               
             
