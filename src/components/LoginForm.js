@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom'
 import axios from "axios";
 
@@ -6,8 +6,12 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate();
 
+    const handleRememberMe = () => {
+      setRememberMe(!rememberMe);
+  }
 
     const handleLogin = () => {
       const token = localStorage.getItem('token');
@@ -32,7 +36,29 @@ const LoginForm = () => {
         alert('Произошла ошибка авторизации: пользователь не авторизован', error.message);
         console.log(error.message);
       });
+
     }
+
+    useEffect(() => {
+      const savedEmail = localStorage.getItem('email');
+      const savedPassword = localStorage.getItem('password');
+      if (savedEmail && savedPassword) {
+          setEmail(savedEmail);
+          setPassword(savedPassword);
+      }
+  }, []);
+
+  useEffect(() => {
+      if (rememberMe) {
+          localStorage.setItem('email', email);
+          localStorage.setItem('password', password);
+      } else {
+          localStorage.removeItem('email');
+          localStorage.removeItem('password');
+      }
+  }, [rememberMe, email, password]);
+
+ 
  
     return(
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -72,6 +98,8 @@ const LoginForm = () => {
                   name="remember-me"
                   type="checkbox"
                   className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  checked={rememberMe}
+                  onChange={handleRememberMe}
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
                   Запомнить меня
