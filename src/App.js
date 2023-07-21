@@ -24,6 +24,7 @@ function App() {
             <Route path='/truck' element={<Truck/>}/>
           </Routes>
    </BrowserRouter>
+   
     </div>
   );
 }
