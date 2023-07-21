@@ -25,7 +25,7 @@ const Stock = () => {
         Техника
       </button>
       <button onClick={navigateToVyshkiTury} className="statusButton" >
-       Вышки-туры
+       Вышки
       </button>
       <Menu/>
     </div>
