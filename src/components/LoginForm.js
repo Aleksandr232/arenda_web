@@ -17,23 +17,22 @@ const LoginForm = () => {
   }
 
     const handleLogin = () => {
-      const token = localStorage.getItem('token');
+      
       if (!email || !password) {
         alert('Неверный логин или пароль');
       }
             
       axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
         email,
-        password,
-        headers: {
-          Authorization: `Bearer ${token}`
-        } 
+        password 
       })
       .then(response => {
         const username = response.data.username;
+        const token = response.data.token;
+        const tokens = localStorage.setItem('token', token);
         setSuccess(`Успешный вход, ${username}!`);
           setTimeout(() => {
-            navigate('/stock', { username: username });
+            navigate('/stock', { token: tokens, username: username });
           }, 2000);
       })
       .catch(error => {
