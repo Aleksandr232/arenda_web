@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Menu from "./Menu";
 import axios from "axios";
-
+import { useSelector } from 'react-redux';
 
 const Lesa=()=>{
+    const token = useSelector((state)=>state.token);
+    const username = useSelector((state)=>state.name);
     const [lesa, setLesa] = useState('');
-    const [username, setUsername] = useState('');
     const [rama, setRama] = useState('');
     const [ramadioganal, setRamadioganal] = useState('');
     const [conect, setConect] = useState('');
@@ -24,15 +25,18 @@ const Lesa=()=>{
       e.preventDefault();
       
       axios.put('https://xn--80aagge2ckkol0hd.xn--p1ai/api/stock/1',{
-        lesa,
         username,
+        lesa,
         rama,
         rigel,
         ramadioganal,
         bash,
         jack,
         nastil,
-        conect
+        conect,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
            
     })
     .then((response) => {
@@ -107,12 +111,6 @@ const Lesa=()=>{
                   placeholder="кол домкрат витовой"
                   onChange={(e)=>setJack(e.target.value)}
                   type='number'
-                />
-                <input
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Имя зав склада"
-                  onChange={(e)=>setUsername(e.target.value)}
-                 type='text'
                 />
               
               <button

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { setToken, setName } from "../redux/actions";
 import Alert from "./Alert/Alert";
 import axios from "axios";
 
@@ -11,6 +13,7 @@ const LoginForm = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleRememberMe = () => {
       setRememberMe(!rememberMe);
@@ -22,23 +25,28 @@ const LoginForm = () => {
         alert('Неверный логин или пароль');
       }
             
-      axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
-        email,
-        password 
-      })
-      .then(response => {
-        const username = response.data.username;
-        const token = response.data.token;
-        const tokens = localStorage.setItem('token', token);
-        setSuccess(`Успешный вход, ${username}!`);
+      
+      
+        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/login-stock', {
+          email,
+          password 
+        })
+        .then(response => {
+          const username = response.data.username;
+          const token = response.data.token;
+          dispatch(setToken(token));
+          dispatch(setName(username));
+          localStorage.setItem('token', token); // Сохраняем токен в localStorage
+          console.log(setToken(token),setName(username));
+          setSuccess(`Успешный вход, ${username}!`);
           setTimeout(() => {
-            navigate('/stock', { token: tokens, username: username });
+            navigate('/stock');
           }, 2000);
-      })
-      .catch(error => {
-        setError('Произошла ошибка авторизации: пользователь не авторизован', error.message);
-        
-      });
+        })
+        .catch(error => {
+          setError('Произошла ошибка авторизации: пользователь не авторизован', error.message);
+        });
+     
 
     }
 

@@ -8,7 +8,9 @@ const Texnic =()=>{
     const [texnica, setTexnica] = useState('');
     const [gazelnew, setGazelnew] = useState('');
     const [gazelold, setGazelold] = useState('');
-    const [username, setUsername] = useState('');
+    
+
+    
 
     const handleFormReset = (e) => {
         e.target.reset();
@@ -22,7 +24,9 @@ const Texnic =()=>{
           tractor,
           gazelnew,
           gazelold,
-          username,
+          /*  headers: {
+          Authorization: `Bearer ${tokens}`
+          }  */
           
              
       })
@@ -68,12 +72,7 @@ const Texnic =()=>{
                   type='text'
                  
                 />
-                <input
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Имя зав склада"
-                  onChange={(e)=>setUsername(e.target.value)}
-                 type='text'
-                />
+                
               
             
 
