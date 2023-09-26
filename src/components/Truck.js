@@ -4,11 +4,14 @@ import Menu from "./Menu";
 import axios from 'axios';
 
 const Truck=()=>{
+    const token = localStorage.getItem('token');
     const [message, setMessage] = useState('');
 
     const updateStatus = async (status) => {
         try {
-          const response = await axios.put(`https://xn--80aagge2ckkol0hd.xn--p1ai/api/logiststatus/1`, { status });
+          const response = await axios.post(`https://xn--80aagge2ckkol0hd.xn--p1ai/api/logiststatus/1`, { status }, {headers: {
+            Authorization: `Bearer ${token}`,
+          }});
     
           if (response.status === 200) {
             setMessage('Статус успешно обновлен');

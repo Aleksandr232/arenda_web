@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { setToken, setName } from "../redux/actions";
+import { setToken} from "../redux/actions";
 import Alert from "./Alert/Alert";
 import axios from "axios";
 
@@ -35,9 +35,8 @@ const LoginForm = () => {
           const username = response.data.username;
           const token = response.data.token;
           dispatch(setToken(token));
-          dispatch(setName(username));
           localStorage.setItem('token', token); // Сохраняем токен в localStorage
-          console.log(setToken(token),setName(username));
+          console.log(setToken(token));
           setSuccess(`Успешный вход, ${username}!`);
           setTimeout(() => {
             navigate('/stock');

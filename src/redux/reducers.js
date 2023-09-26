@@ -1,6 +1,5 @@
 const initialState = {
     token: null,
-    name:''
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -9,11 +8,6 @@ const initialState = {
         return {
           ...state,
           token: action.payload
-        };
-        case 'SET_NAME':
-        return {
-          ...state,
-          name: action.payload
         };
       default:
         return state;

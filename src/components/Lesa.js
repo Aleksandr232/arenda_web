@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 const Lesa=()=>{
     const token = useSelector((state)=>state.token);
-    const username = useSelector((state)=>state.name);
     const [lesa, setLesa] = useState('');
     const [rama, setRama] = useState('');
     const [ramadioganal, setRamadioganal] = useState('');
@@ -21,44 +20,46 @@ const Lesa=()=>{
         e.target.reset();
       };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
+      const handleSubmit = (e) => {
+        e.preventDefault();
       
-      axios.put('https://xn--80aagge2ckkol0hd.xn--p1ai/api/stock/1',{
-        username,
-        lesa,
-        rama,
-        rigel,
-        ramadioganal,
-        bash,
-        jack,
-        nastil,
-        conect,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
-           
-    })
-    .then((response) => {
-        handleFormReset(e);
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+        axios.put('https://xn--80aagge2ckkol0hd.xn--p1ai/api/stock/1', {
+          lesa,
+          rama,
+          rigel,
+          ramadioganal,
+          bash,
+          jack,
+          nastil,
+          conect,
+        },{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            handleFormReset(e);
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
     
   
    
   
   
-    };
+    
     return(
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
+        `Bearer ${token}`
           {/* <div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Войти в аккаунт</h2>
             <p className="mt-2 text-center text-sm text-gray-600"></p>
           </div> */}
+          
           
           <div className="mt-8 space-y-6" >
             <div className="rounded-md shadow-sm -space-y-px">

@@ -31,7 +31,7 @@ const Stock = () => {
     if (token) {
       // Логика для запроса данных пользователя
       axios
-        .get("https://xn--80aagge2ckkol0hd.xn--p1ai/api/user", {
+        .get("https://xn--80aagge2ckkol0hd.xn--p1ai/api/users", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

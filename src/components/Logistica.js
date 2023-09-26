@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 const Logistica=()=>{
+  const token = localStorage.getItem('token');
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -16,7 +17,11 @@ const Logistica=()=>{
       }, []);
     
       const sendLocationToAPI = (latitude, longitude) => {
-        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/updatelogist/24', { latitude, longitude })
+        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/updatelogist/24', { latitude, longitude }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
           .then((response) => {
             console.log(response.data);
           })
