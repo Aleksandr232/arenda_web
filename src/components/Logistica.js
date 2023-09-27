@@ -17,7 +17,7 @@ const Logistica=()=>{
       }, []);
     
       const sendLocationToAPI = (latitude, longitude) => {
-        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/updatelogist/24', { latitude, longitude }, {
+        axios.post('https://xn--80aagge2ckkol0hd.xn--p1ai/api/logist', { latitude, longitude }, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
