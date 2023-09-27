@@ -9,7 +9,7 @@ const Truck=()=>{
 
     const updateStatus = async (status) => {
         try {
-          const response = await axios.post(`https://xn--80aagge2ckkol0hd.xn--p1ai/api/logiststatus/1`, { status }, {headers: {
+          const response = await axios.post(`https://xn--80aagge2ckkol0hd.xn--p1ai/api/logiststatus`, { status }, {headers: {
             Authorization: `Bearer ${token}`,
           }});
     
