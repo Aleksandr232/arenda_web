@@ -4,6 +4,7 @@ import axios from "axios";
 import Menu from "./Menu";
 
 const Texnic =()=>{
+    const token = localStorage.getItem('token');
     const [tractor, setTractor] = useState('');
     const [texnica, setTexnica] = useState('');
     const [gazelnew, setGazelnew] = useState('');
@@ -23,13 +24,13 @@ const Texnic =()=>{
           texnica,
           tractor,
           gazelnew,
-          gazelold,
-          /*  headers: {
-          Authorization: `Bearer ${tokens}`
-          }  */
-          
-             
-      })
+          gazelold
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
       .then((response) => {
         handleFormReset(e);
         console.log(response);

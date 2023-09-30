@@ -4,8 +4,8 @@ import axios from "axios";
 import Menu from "./Menu";
 
 const Tours = () =>{
+    const token = localStorage.getItem('token');
     const [tours, setTours] = useState('');
-    const [username, setUsername] = useState('');
     const [footing1_5, setFooting] = useState(''); 
            
 
@@ -19,7 +19,6 @@ const Tours = () =>{
       
         axios.put('https://xn--80aagge2ckkol0hd.xn--p1ai/api/stock/1', {
           tours,
-          username,
            footing1_5,
           /*area0_45,
           rama1_2,
@@ -36,9 +35,14 @@ const Tours = () =>{
           pipe,
           rama1_4,
           link0_9 */
-
-
-        })
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+        
+        )
         .then((response) => {
           handleFormReset(e);
         console.log(response);
@@ -56,12 +60,12 @@ const Tours = () =>{
             <div className="mt-8 space-y-6" >
                 <div className="rounded-md shadow-sm -space-y-px">
                     <form onSubmit={handleSubmit} onReset={handleFormReset}>
-                    <input
+                    {/* <input
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="количиство вышки-тур"
                     
                     onChange={(e) => setTours(e.target.value)}
-                    />
+                    /> */}
                      <input
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="основания 1,5"
@@ -195,13 +199,7 @@ const Tours = () =>{
                     onChange={(e) => setLink0_9(e.target.value)}
                     type="number"
                     /> */}
-                    <input
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Имя зав склада"
                     
-                    onChange={(e) => setUsername(e.target.value)}
-                    type="text"
-                    />
                     <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Отправить</button>
                 </form>
             </div>
